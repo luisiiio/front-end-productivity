@@ -65,12 +65,59 @@ export function getTasks() {
     return (dispatch, getState) => {
         dispatch(getTasksInit());
 
-        // http://localhost:3001/task
         return axios.get(`${apiUrl}/task`)
             .then(({ data }) => dispatch(getTasksCompleted(data)))
             .catch((error) => {
                 const mensaje = error.message || error;
                 dispatch(getTasksError(mensaje));
+            });
+    };
+}
+
+
+// d_ CREAR CONTACTO
+// >> Action Creators <<
+export function createTaskInit() {
+    return {
+        type: CONSTANTS.CREATE_TASK.INIT,
+        payload: {
+            loading: true,
+            error: '',
+        },
+    };
+}
+
+export function createTaskCompleted(tasks) {
+    return {
+        type: CONSTANTS.CREATE_TASK.COMPLETED,
+        payload: {
+            tasks,
+            loading: false,
+            error: '',
+        },
+    };
+}
+
+export function createTaskError(error) {
+    return {
+        type: CONSTANTS.CREATE_TASK.ERROR,
+        payload: {
+            error,
+            loading: false,
+        },
+    };
+}
+
+// >> Async Action Creator <<
+export function createTask(task) {
+    return (dispatch, getState) => {
+        dispatch(crearContactoInicio());
+
+        return axios.post(`${apiUrl}/task`, task)
+            .then((tasks) => dispatch(createTaskCompleted(tasks)))
+            .catch((error) => {
+                const mensaje = error.message || error;
+                dispatch(createTaskError(mensaje));
             });
     };
 }
