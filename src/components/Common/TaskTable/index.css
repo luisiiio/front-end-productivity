@@ -1,0 +1,14 @@
+.btn-delete {
+    color: red;
+    cursor: pointer;
+}
+
+.btn-edit {
+    color: blue;
+    cursor: pointer;
+}
+
+.btn-move {
+    color: black;
+    cursor: pointer;
+}

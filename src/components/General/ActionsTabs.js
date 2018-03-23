@@ -4,6 +4,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 // Local Components
+import Tasks from '../Tasks';
 
 
 const styles = {
@@ -39,7 +40,7 @@ export default class ActionsTabs extends React.Component {
                 <Tab label="Tasks" value="tasks">
                 <div>
                     <h2 style={styles.headline}>Tasks</h2>
-                    <p>here are task</p>
+                    <Tasks />
                 </div>
                 </Tab>
                 <Tab label="Completed Tasks" value="completedTasks">
