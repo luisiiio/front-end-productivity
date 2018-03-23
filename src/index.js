@@ -9,7 +9,7 @@ import './index.css';
 import AppBar from 'material-ui/AppBar';
 
 // Local Components
-import ActionsTabs from './components/actions-tabs';
+import ActionsTabs from './components/General/ActionsTabs';
 
 
 

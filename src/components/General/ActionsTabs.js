@@ -5,15 +5,13 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 
 // Local Components
 
+
 const styles = {
     headline: {
       fontSize: 24,
       paddingTop: 16,
       marginBottom: 12,
       fontWeight: 400,
-    },
-    tabs: {
-        width: '100%'
     }
   };
   
@@ -34,7 +32,6 @@ export default class ActionsTabs extends React.Component {
 
     render() {
         return (
-        <div style={styles.tabs}>
             <Tabs
                 value={this.state.value}
                 onChange={this.handleChange}
@@ -58,7 +55,6 @@ export default class ActionsTabs extends React.Component {
                 </div>
                 </Tab>
             </Tabs>
-        </div>
         );
     }
 }
