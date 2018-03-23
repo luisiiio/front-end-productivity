@@ -14,23 +14,20 @@ import {
 } from 'material-ui/Table';
 
 const Delete = () => (
-    <p className="btn-delete">DELETE</p>
+    <i className="material-icons btn-delete ">delete</i>
 )
 
 const Edit = () => (
-    <p className="btn-edit">EDIT</p>
+    <i className="material-icons btn-edit">edit</i>
 )
 
 const Up = () => (
-    <p className="btn-move">UP</p>
+    <i className="material-icons btn-move">expand_less</i>
 )
 
 const Down = () => (
-    <p className="btn-move">DOWN</p>
+    <i className="material-icons btn-move">expand_more</i>
 )
-
-
- //   <RaisedButton label="Edit" primary={true} style={style}/>
 
 
 export default class TaskTable extends React.Component {

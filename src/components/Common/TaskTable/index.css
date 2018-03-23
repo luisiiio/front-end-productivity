@@ -1,14 +1,14 @@
 .btn-delete {
-    color: red;
+    color: #ea5d78;
     cursor: pointer;
 }
 
 .btn-edit {
-    color: blue;
+    color: #8ba6d6;
     cursor: pointer;
 }
 
 .btn-move {
-    color: black;
+    color: #777171;
     cursor: pointer;
 }
