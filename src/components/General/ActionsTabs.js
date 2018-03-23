@@ -35,8 +35,7 @@ class ActionsTabs extends React.Component {
             "duration": "3:30:45"
         }
 
-        ACTIONS.getTasks();
-        store.dispatch(ACTIONS.createTask(obj));
+        //store.dispatch(ACTIONS.createTask(obj));
 
         if(!JSON.parse(localStorage.getItem("mockData"))) {
             localStorage.setItem("mockData", JSON.stringify(mockData));
