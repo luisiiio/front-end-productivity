@@ -5,6 +5,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 
 // Local Components
 import Tasks from '../Tasks';
+import CompletedTasks from '../CompletedTask';
 
 
 const styles = {
@@ -46,7 +47,7 @@ export default class ActionsTabs extends React.Component {
                 <Tab label="Completed Tasks" value="completedTasks">
                 <div>
                     <h2 style={styles.headline}>Completed Tasks</h2>
-                    <p>here are completed tasks</p>
+                    <CompletedTasks />
                 </div>
                 </Tab>
                 <Tab label="Graphic" value="graphic">
