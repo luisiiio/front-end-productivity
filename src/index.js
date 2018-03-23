@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+
 
 // Styles
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -28,9 +31,11 @@ class ProductivityApp extends React.Component {
 
     render() {
         return (
-            <MuiThemeProvider>
-                <AppContainer/>
-            </MuiThemeProvider>
+            <Provider store={ store }>
+                <MuiThemeProvider>
+                    <AppContainer/>
+                </MuiThemeProvider>
+            </Provider>
         );
     }
 }
