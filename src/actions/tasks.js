@@ -1,5 +1,4 @@
 import axios from 'axios';
-import findIndex from 'lodash/findIndex';
 import * as CONSTANTS from '../constants/tasks';
 import { apiUrl } from '../utils/http';
 
@@ -167,6 +166,55 @@ export function updateTask(task) {
             .catch((error) => {
                 const mensaje = error.message || error;
                 dispatch(updateTaskError(mensaje));
+            });
+    };
+}
+
+
+
+// d_ DELETE TASK
+// >> Action Creators <<
+export function deleteTaskInit() {
+    return {
+        type: CONSTANTS.DELETE_TASK.INIT,
+        payload: {
+            loading: true,
+            error: '',
+        },
+    };
+}
+
+export function deleteTaskCompleted(tasks) {
+    return {
+        type: CONSTANTS.DELETE_TASK.COMPLETED,
+        payload: {
+            tasks,
+            loading: false,
+            error: '',
+        },
+    };
+}
+
+export function deleteTaskError(error) {
+    return {
+        type: CONSTANTS.DELETE_TASK.ERROR,
+        payload: {
+            error,
+            loading: false,
+        },
+    };
+}
+
+// >> Async Action Creator <<
+export function delteTask(taskId) {
+    return (dispatch, getState) => {
+        dispatch(deleteTaskInit());
+
+        return axios.delete(`${apiUrl}/task`, taskId)
+            .then((tasks) => dispatch(deleteTaskCompleted(tasks)))
+            .catch((error) => {
+                const mensaje = error.message || error;
+                dispatch(deleteTaskError(mensaje));
             });
     };
 }
