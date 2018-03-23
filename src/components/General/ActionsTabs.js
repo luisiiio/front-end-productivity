@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 // Material Components
 import {Tabs, Tab} from 'material-ui/Tabs';
@@ -17,7 +18,7 @@ const styles = {
     }
   };
   
-export default class ActionsTabs extends React.Component {
+class ActionsTabs extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,7 +34,12 @@ export default class ActionsTabs extends React.Component {
     };
 
     render() {
+        
+        const { dataApp } = this.props;
+        
         return (
+
+
             <Tabs
                 value={this.state.value}
                 onChange={this.handleChange}
@@ -41,7 +47,7 @@ export default class ActionsTabs extends React.Component {
                 <Tab label="Tasks" value="tasks">
                 <div>
                     <h2 style={styles.headline}>Tasks</h2>
-                    <Tasks />
+                    <Tasks dataApp={ dataApp }/>
                 </div>
                 </Tab>
                 <Tab label="Completed Tasks" value="completedTasks">
@@ -60,3 +66,10 @@ export default class ActionsTabs extends React.Component {
         );
     }
 }
+
+
+const mapStateToProps = (state) => ({
+	dataApp: state.tasks,
+});
+
+export default connect(mapStateToProps)(ActionsTabs);
