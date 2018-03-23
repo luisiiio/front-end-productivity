@@ -16,7 +16,9 @@ import ActionsTabs from './components/actions-tabs';
 const AppContainer = () => (
     <div className="app-container">
         <AppBar title="Productivity App"/>
-        <ActionsTabs />
+        <div className="container-actions-tabs">
+            <ActionsTabs />
+        </div>
     </div>
 );
 

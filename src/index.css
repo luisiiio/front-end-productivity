@@ -1,13 +1,23 @@
 @import "~roboto-fontface/css/roboto/roboto-fontface.css";
-
-
 body {
     margin: 0;
     padding: 0;
-    
 }
 
-AppContainer{
+AppContainer {
     width: 100%;
     display: flex;
+}
+
+.container-actions-tabs {
+    margin: 0 auto;
+    width: 700px;
+    margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+    .container-actions-tabs {
+        width: 100%;
+        margin-top: 0;
+    }
 }
