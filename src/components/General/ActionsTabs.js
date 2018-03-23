@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import mockData from './mockData';
+import store from '../../store/';
+import * as ACTIONS from '../../actions/tasks';
+
 // Material Components
 import {Tabs, Tab} from 'material-ui/Tabs';
 
@@ -25,6 +29,18 @@ class ActionsTabs extends React.Component {
         this.state = {
         value: 'tasks',
         };
+
+        let obj = {
+            "description": "crear models task",
+            "duration": "3:30:45"
+        }
+
+        ACTIONS.getTasks();
+        store.dispatch(ACTIONS.createTask(obj));
+
+        if(!JSON.parse(localStorage.getItem("mockData"))) {
+            localStorage.setItem("mockData", JSON.stringify(mockData));
+        }
     }
 
     handleChange = (value) => {
@@ -36,7 +52,7 @@ class ActionsTabs extends React.Component {
     render() {
         
         const { dataApp } = this.props;
-        
+
         return (
 
 

@@ -110,7 +110,7 @@ export function createTaskError(error) {
 // >> Async Action Creator <<
 export function createTask(task) {
     return (dispatch, getState) => {
-        dispatch(crearContactoInicio());
+        dispatch(createTaskInit());
 
         return axios.post(`${apiUrl}/task`, task)
             .then((tasks) => dispatch(createTaskCompleted(tasks)))
