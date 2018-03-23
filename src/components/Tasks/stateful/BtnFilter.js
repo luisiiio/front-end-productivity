@@ -7,6 +7,13 @@ import MenuItem from 'material-ui/MenuItem';
 // Local Components
 
 
+const styles = {
+  customWidth: {
+    width: 200,
+  },
+};
+
+
 export default class BtnFilter extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +25,7 @@ export default class BtnFilter extends React.Component {
       render() {
         return (
           <div>
-            <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+            <DropDownMenu value={this.state.value} onChange={this.handleChange} style={styles.customWidth}>
               <MenuItem value={1} primaryText="Filter for Duration" />
               <MenuItem value={2} primaryText="Short" />
               <MenuItem value={3} primaryText="Medium" />
