@@ -3,7 +3,7 @@ import findIndex from 'lodash/findIndex';
 import * as CONSTANTS from '../constants/tasks';
 import { apiUrl } from '../utils/http';
 
-// d_ GENERALES
+// d_ GENERALS
 // >> Action Creators <<
 export function cleanForm() {
     return {
@@ -26,7 +26,7 @@ export function saveTask(nombre) {
 }
 
 
-// d_ OBTENER CONTACTOS
+// d_ GET TASKS
 // >> Action Creators <<
 export function getTasksInit() {
     return {
@@ -75,7 +75,7 @@ export function getTasks() {
 }
 
 
-// d_ CREAR CONTACTO
+// d_ CREATE TASKS
 // >> Action Creators <<
 export function createTaskInit() {
     return {
@@ -118,6 +118,55 @@ export function createTask(task) {
             .catch((error) => {
                 const mensaje = error.message || error;
                 dispatch(createTaskError(mensaje));
+            });
+    };
+}
+
+
+
+// d_ UPDATE TASKS
+// >> Action Creators <<
+export function updateTaskInit() {
+    return {
+        type: CONSTANTS.UPDATE_TASK.INIT,
+        payload: {
+            loading: true,
+            error: '',
+        },
+    };
+}
+
+export function updateTaskCompleted(tasks) {
+    return {
+        type: CONSTANTS.UPDATE_TASK.COMPLETED,
+        payload: {
+            tasks,
+            loading: false,
+            error: '',
+        },
+    };
+}
+
+export function updateTaskError(error) {
+    return {
+        type: CONSTANTS.UPDATE_TASK.ERROR,
+        payload: {
+            error,
+            loading: false,
+        },
+    };
+}
+
+// >> Async Action Creator <<
+export function updateTask(task) {
+    return (dispatch, getState) => {
+        dispatch(updateTaskInit());
+
+        return axios.put(`${apiUrl}/task`, task)
+            .then((tasks) => dispatch(updateTaskCompleted(tasks)))
+            .catch((error) => {
+                const mensaje = error.message || error;
+                dispatch(updateTaskError(mensaje));
             });
     };
 }
